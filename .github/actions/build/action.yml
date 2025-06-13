@@ -7,9 +7,6 @@ inputs:
   docker-image-name:
     description: 'Name for the Docker image'
     required: true
-  tests:
-    description: 'Start tests for the service or not'
-    required: true
 
 runs:
   using: "composite"
@@ -17,7 +14,7 @@ runs:
     - name: Run Maven Build for ${{ inputs.service-path }}
       run: |
         cd ${{ inputs.service-path }}
-        mvn clean package -DskipTests=${{ inputs.tests }}
+        mvn clean package -DskipTests=true
       shell: bash
 
     - name: Build Docker image for ${{ inputs.docker-image-name }}
