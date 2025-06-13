@@ -24,6 +24,7 @@ jobs:
         with:
           service-path: '.'
           docker-image-name: 'api'
+          tests: true
 
       # --- Build Rate API ---
       - name: Build Rate Api
@@ -31,6 +32,7 @@ jobs:
         with:
           service-path: 'rate-service'
           docker-image-name: 'rate'
+          tests: false
 
       # --- Build Mail API ---
       - name: Build Mail Api
@@ -38,6 +40,7 @@ jobs:
         with:
           service-path: 'mail-service'
           docker-image-name: 'mail'
+          tests: false
 
   test:
     runs-on: self-hosted
