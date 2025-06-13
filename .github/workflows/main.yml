@@ -60,8 +60,12 @@ jobs:
         run: snap install yq
       - name: Update JSON path in application-test.yml
         run: yq -i '.app.json.path = "./resources/json/dollar_exchange_rate.json"' ./src/test/resources/application-test.yml
-      - name: Run Marketplace api Tests
+      - name: Run Marketplace API Tests
         run: mvn test -Dspring.profiles.active=test
+      - name: Run Rate API Tests
+        run: cd rate-service && mvn test
+      - name: Run Mail API Tests
+        run: cd mail-service && mvn test
       - name: Delete postgres test container
         run: docker rm -f test
 
