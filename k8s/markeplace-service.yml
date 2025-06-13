@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: marketplace
-          image: marketplace:latest
+          image: api:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: SPRING_DATASOURCE_URL
@@ -61,4 +61,14 @@ spec:
 ---
 apiVersion: v1
 kind: Service
+metadata:
+  name: marketplace
+  labels:
+    app: marketplace
+spec:
+  type: NodePort
+  ports:
+    - port: 8081
+      targetPort: 9000
+      protocol: TCP
 
