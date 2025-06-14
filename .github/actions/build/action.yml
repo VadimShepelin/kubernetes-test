@@ -28,7 +28,7 @@ runs:
     - name: Tag images for Docker Hub
       run: |
         docker tag ${{ inputs.docker-image-name }}:latest \
-        kocichca152/marketplace/${{ inputs.docker-image-name }}}:latest
+        kocichca152/marketplace/${{ inputs.docker-image-name }}:latest
       shell: bash
 
     - name: Docker push to Docker Hub
