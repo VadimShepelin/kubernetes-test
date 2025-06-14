@@ -15,8 +15,10 @@ spec:
     spec:
       containers:
         - name: mail
-          image: kocichca152/marketplace/mail:latest
+          image: kocichca152/mail:latest
           imagePullPolicy: IfNotPresent
+      imagePullSecrets:
+        - name: my-dockerhub-secret
 
 ---
 apiVersion: v1

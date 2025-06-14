@@ -15,9 +15,10 @@ spec:
     spec:
       containers:
         - name: rate
-          image: kocichca152/marketplace/rate:latest
+          image: kocichca152/rate:latest
           imagePullPolicy: IfNotPresent
-
+      imagePullSecrets:
+       - name: my-dockerhub-secret
 ---
 apiVersion: v1
 kind: Service
