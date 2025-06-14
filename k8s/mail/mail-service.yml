@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: mail
-          image: mail:latest
+          image: kocichca152/marketplace/mail:latest
           imagePullPolicy: IfNotPresent
 
 ---

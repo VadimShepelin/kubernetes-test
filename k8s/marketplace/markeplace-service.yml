@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: marketplace-deployment
+  name: marketplace-service
   labels:
     app: marketplace
 spec:
@@ -20,8 +20,8 @@ spec:
     spec:
       containers:
         - name: marketplace
-          image: api:latest
-          imagePullPolicy: IfNotPresent
+          image: kocichca152/marketplace/marketplace:latest
+          imagePullPolicy: Always
           env:
             - name: SPRING_DATASOURCE_URL
               valueFrom:

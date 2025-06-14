@@ -18,5 +18,13 @@ runs:
       shell: bash
 
     - name: Build Docker image for ${{ inputs.docker-image-name }}
-      run: docker build -f ${{ inputs.service-path }}/Dockerfile -t ${{ inputs.docker-image-name }}:latest ${{ inputs.service-path }}
+      run: |
+        docker build -f ${{ inputs.service-path }}/Dockerfile -t 
+        ${{inputs.docker-image-name}} ${{ inputs.service-path }}
+      shell: bash
+
+    - name: Docker push to DockerHub
+      run: | 
+          docker push ${{ secrets.DOCKERHUB_USERNAME}}}/${{secrets.DOCKERHUB_REPOSITORY}}/
+          ${{inputs.docker-image-name}}:latest
       shell: bash

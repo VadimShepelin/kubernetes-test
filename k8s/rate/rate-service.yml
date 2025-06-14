@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: rate
-          image: rate:latest
+          image: kocichca152/marketplace/rate:latest
           imagePullPolicy: IfNotPresent
 
 ---
