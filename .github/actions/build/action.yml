@@ -24,7 +24,5 @@ runs:
       shell: bash
 
     - name: Docker push to DockerHub
-      run: | 
-          docker push ${{ secrets.DOCKERHUB_USERNAME}}}/${{secrets.DOCKERHUB_REPOSITORY}}/
-          ${{inputs.docker-image-name}}:latest
+      run: docker push kocichca152/marketplace/${{inputs.docker-image-name}}:latest
       shell: bash
