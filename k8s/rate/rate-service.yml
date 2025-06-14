@@ -17,8 +17,6 @@ spec:
         - name: rate
           image: kocichca152/rate:latest
           imagePullPolicy: IfNotPresent
-      imagePullSecrets:
-       - name: my-dockerhub-secret
 ---
 apiVersion: v1
 kind: Service

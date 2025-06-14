@@ -17,9 +17,6 @@ spec:
         - name: mail
           image: kocichca152/mail:latest
           imagePullPolicy: IfNotPresent
-      imagePullSecrets:
-        - name: my-dockerhub-secret
-
 ---
 apiVersion: v1
 kind: Service

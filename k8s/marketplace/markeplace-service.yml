@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: marketplace
-          image: kocichca152/marketplace:latest
+          image: kocichca152/api:latest
           imagePullPolicy: Always
           env:
             - name: SPRING_DATASOURCE_URL
@@ -58,8 +58,6 @@ spec:
                 configMapKeyRef:
                   key: APP_JSON_PATH
                   name: marketplace-config
-      imagePullSecrets:
-        - name: my-dockerhub-secret
 ---
 apiVersion: v1
 kind: Service
