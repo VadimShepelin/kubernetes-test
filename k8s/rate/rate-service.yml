@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rate-service
+  labels:
+    app: rate
+spec:
+  selector:
+    matchLabels:
+      app: rate
+  template:
+    metadata:
+      labels:
+        app: rate
+    spec:
+      containers:
+        - name: rate
+          image: rate:latest
+          imagePullPolicy: IfNotPresent
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rate-service
+  labels:
+    app: rate
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
