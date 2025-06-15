@@ -59,13 +59,12 @@ spec:
                   key: APP_JSON_PATH
                   name: marketplace-config
       initContainers:
-        - name: wait-for-postgres-service
-          image: stefanevinance/wait-for-200
-          env:
-            - name: URL
-              valueFrom:
-                configMapKeyRef:
-                  key: SPRING_DATASOURCE_URL
+      - name: wait-for-postgres
+        image: image-docker-containing-sh
+        args:
+          - /bin/sh
+          - -c
+          - /usr/app/wait-for-it.sh postgres-service:5432 -t 0
 ---
 apiVersion: v1
 kind: Service
