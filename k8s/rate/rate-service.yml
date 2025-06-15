@@ -16,7 +16,7 @@ spec:
       containers:
         - name: rate
           image: kocichca152/rate:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service

@@ -16,7 +16,7 @@ spec:
       containers:
         - name: mail
           image: kocichca152/mail:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
