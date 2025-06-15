@@ -81,6 +81,8 @@ jobs:
       - build
       - test
     steps:
+      - name: Docker image prune
+        run: docker image prune
       - name: Check cluster info
         run : kubectl cluster-info
       - name: Apply k8s files
