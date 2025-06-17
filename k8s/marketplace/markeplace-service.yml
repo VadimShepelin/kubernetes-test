@@ -58,6 +58,11 @@ spec:
                 configMapKeyRef:
                   key: APP_JSON_PATH
                   name: marketplace-config
+            - name: SPRING_PROFILES_ACTIVE
+              valueFrom:
+                configMapKeyRef:
+                  key: SPRING_PROFILES_ACTIVE
+                  name: marketplace-config
 ---
 apiVersion: v1
 kind: Service
