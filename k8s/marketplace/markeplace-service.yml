@@ -73,7 +73,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 8081
-      targetPort: 8081
+    - port: 9000
+      targetPort: 9000
       protocol: TCP
 
