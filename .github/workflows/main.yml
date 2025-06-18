@@ -88,4 +88,4 @@ jobs:
       - name: Apply K8s files
         run : kubectl apply -f k8s/ -R
       - name: Port Forwarding to Ingress Controller
-        run: kubectl port-forward --address 0.0.0.0 -n ingress-nginx service/ingress-nginx-controller 8080:80
+        run: kubectl port-forward --address 0.0.0.0 -n ingress-nginx service/ingress-nginx-controller 8080:80 &
