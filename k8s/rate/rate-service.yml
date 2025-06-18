@@ -29,7 +29,7 @@ metadata:
 spec:
   selector:
     app: rate
-  type: NodePort
+  type: LoadBalancer
   ports:
     - port: 8080
       targetPort: 8080
