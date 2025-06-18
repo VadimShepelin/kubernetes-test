@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: postgres-set
   labels:
-    app: postgres-set
+    app: postgres
 spec:
   serviceName: postgres-service
   selector:

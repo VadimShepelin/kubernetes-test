@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: redis-set
   labels:
-    app: redis-set
+    app: redis
 spec:
   serviceName: redis-service
   selector:

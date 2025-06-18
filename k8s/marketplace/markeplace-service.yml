@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: marketplace-deployment
   labels:
-    app: marketplace-deployment
+    app: marketplace
 spec:
   replicas: 1
   selector:

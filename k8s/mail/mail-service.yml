@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mail-deploy
   labels:
-    app: mail-deploy
+    app: mail
 spec:
   selector:
     matchLabels:

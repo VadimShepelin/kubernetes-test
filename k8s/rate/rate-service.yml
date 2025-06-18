@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: rate-deploy
   labels:
-    app: rate-deploy
+    app: rate
 spec:
   selector:
     matchLabels:
