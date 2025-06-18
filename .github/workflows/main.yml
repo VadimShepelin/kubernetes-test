@@ -58,7 +58,7 @@ jobs:
           POSTGRES_USERNAME_TEST: ${{ secrets.POSTGRES_USERNAME_TEST }}
           POSTGRES_PASSWORD_TEST: ${{ secrets.POSTGRES_PASSWORD_TEST }}
         run : docker-compose -f ./.github/test/docker-test.yml up -d
-      - name: Copy Json rate
+      - name: Copy json rate
         run : mkdir -p ./resources/json && cp -R ./src/main/resources/json/* ./resources/json/
       - name: Install Yq
         run : snap install yq
