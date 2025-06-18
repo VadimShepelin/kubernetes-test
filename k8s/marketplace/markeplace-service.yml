@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: marketplace
+  name: marketplace-deployment
   labels:
-    app: marketplace
+    app: marketplace-deployment
 spec:
   replicas: 1
   selector:
@@ -71,7 +71,7 @@ kind: Service
 metadata:
   name: marketplace-service
   labels:
-    app: marketplace
+    app: marketplace-service
 spec:
   selector:
     app: marketplace
