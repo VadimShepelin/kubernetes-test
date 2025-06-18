@@ -86,7 +86,6 @@ jobs:
       - name: Check cluster info
         run : kubectl cluster-info
       - name: Create Ingress Controller
-        run: kubectl apply -f https://raw.githubusercontent.com/ \
-             kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+        run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
       - name: Apply k8s files
         run : kubectl apply -f k8s/ -R
