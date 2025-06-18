@@ -29,7 +29,7 @@ metadata:
 spec:
   selector:
     app: mail
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 8085
       targetPort: 8085

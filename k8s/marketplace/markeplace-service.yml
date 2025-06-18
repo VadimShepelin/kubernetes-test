@@ -75,7 +75,7 @@ metadata:
 spec:
   selector:
     app: marketplace
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 9000
       targetPort: 9000
