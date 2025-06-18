@@ -71,7 +71,7 @@ kind: Service
 metadata:
   name: marketplace-service
   labels:
-    app: marketplace-service
+    app: marketplace
 spec:
   selector:
     app: marketplace
