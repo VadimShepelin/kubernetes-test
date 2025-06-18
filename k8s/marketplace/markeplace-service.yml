@@ -73,6 +73,8 @@ metadata:
   labels:
     app: marketplace
 spec:
+  selector:
+    app: marketplace
   type: NodePort
   ports:
     - port: 9000
