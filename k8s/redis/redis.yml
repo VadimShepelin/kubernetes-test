@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: redis
+  name: redis-set
   labels:
-    app: redis
+    app: redis-set
 spec:
   serviceName: redis-service
   selector:
@@ -31,7 +31,7 @@ kind: Service
 metadata:
   name: redis-service
   labels:
-    app: redis
+    app: redis-service
 spec:
   clusterIP: None
   ports:

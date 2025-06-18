@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: postgres
+  name: postgres-set
   labels:
-    app: postgres
+    app: postgres-set
 spec:
   serviceName: postgres-service
   selector:
@@ -43,7 +43,7 @@ kind: Service
 metadata:
   name: postgres-service
   labels:
-    app: postgres
+    app: postgres-service
 spec:
   clusterIP: None
   ports:
