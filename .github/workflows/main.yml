@@ -90,6 +90,6 @@ jobs:
 
         ## You need to minikube addons enable ingress, metrics-server and dashboard
       - name: Port forwarding to Ingress
-        run:  kubectl port-forward --address 0.0.0.0 -n ingress-nginx service/ingress-nginx-controller 8080:80
+        run:  kubectl port-forward --address 0.0.0.0 -n ingress-nginx service/ingress-nginx-controller 8080:80 &
       - name: Port forwarding to Dashboard
-        run:  kubectl port-forward --address 0.0.0.0 -n kubernetes-dashboard service/kubernetes-dashboard 8081:80
+        run:  kubectl port-forward --address 0.0.0.0 -n kubernetes-dashboard service/kubernetes-dashboard 8081:80 &
