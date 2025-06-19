@@ -87,6 +87,8 @@ jobs:
         run : kubectl cluster-info
       - name: Apply k8s files
         run : kubectl apply -f k8s/ -R
+
+        ## You need to minikube addons enable ingress, metrics-server and dashboard
       - name: Port forwarding to Ingress
         run:  kubectl port-forward --address 0.0.0.0 -n ingress-nginx service/ingress-nginx-controller 8080:80
       - name: Port forwarding to Dashboard
