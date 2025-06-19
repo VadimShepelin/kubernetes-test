@@ -85,7 +85,7 @@ jobs:
         run:  docker image prune
       - name: Check cluster info
         run : kubectl cluster-info
-      - name: Apply K8s files
+      - name: Apply k8s files
         run : kubectl apply -f k8s/ -R
       - name: Port forwarding to Ingress
         run:  kubectl port-forward pod/my-pod 8080:80 &
