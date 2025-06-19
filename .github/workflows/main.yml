@@ -82,12 +82,12 @@ jobs:
       - test
     steps:
       - name: Docker image prune
-        run: docker image prune
+        run:  docker image prune
       - name: Check cluster info
         run : kubectl cluster-info
       - name: Apply K8s files
         run : kubectl apply -f k8s/ -R
       - name: Kill port forwarding to Ingress
-        run: kill -9 $(lsof -t -i :8080)
+        run:  PID=$(lsof -t -i :8080); [ -n "$PID" ] && kill -9 $PID
       - name: Port forwarding to Ingress
-        run: kubectl port-forward pod/my-pod 8080:80 &
+        run:  kubectl port-forward pod/my-pod 8080:80 &
