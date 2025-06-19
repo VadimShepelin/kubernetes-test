@@ -87,5 +87,7 @@ jobs:
         run : kubectl cluster-info
       - name: Apply K8s files
         run : kubectl apply -f k8s/ -R
-      - name: Port Forwarding to Ingress Controller
-        run: kubectl port-forward --address 0.0.0.0 -n ingress-nginx service/ingress-nginx-controller 8080:80 &
+      - name: Kill port forwarding to Ingress
+        run: kill -9 $(lsof -t -i :8080)
+      - name: Port forwarding to Ingress
+        run: kubectl port-forward pod/my-pod 8080:80 &
