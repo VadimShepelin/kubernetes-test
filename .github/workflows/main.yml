@@ -85,5 +85,11 @@ jobs:
         run:  docker image prune
       - name: Check cluster info
         run : kubectl cluster-info
-      - name: User Helm for deploy
-        run : helm upgrade --install ./helm -f values.yaml
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.8.1
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.5.0
+        with:
+          charts_dir: helm
