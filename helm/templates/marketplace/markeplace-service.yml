@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: marketplace-deployment
+  name: {{ .Release.Name  }}-marketplace-deployment
   labels:
-    app: marketplace
+    app: {{ .Release.Name  }}-marketplace
 spec:
-  replicas: 1
+  replicas: {{  .Values.replicas  }}
   selector:
     matchLabels:
-      app: marketplace
+      app: {{ .Release.Name  }}-marketplace
   strategy:
     rollingUpdate:
       maxSurge: 1
-      maxUnavailable: 0
+      maxUnavailable: {{  .Values.maxUnavailable  }}
   template:
     metadata:
       labels:
-        app: marketplace
+        app: {{ .Release.Name  }}-marketplace
     spec:
       containers:
-        - name: marketplace
+        - name: {{ .Values.container  }}
           image: kocichca152/api:latest
           ports:
             - containerPort: 9000
@@ -69,12 +69,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: marketplace-service
+  name: {{ .Release.Name  }}-marketplace-service
   labels:
-    app: marketplace-service
+    app: {{ .Release.Name  }}-marketplace-service
 spec:
   selector:
-    app: marketplace
+    app: {{ .Release.Name  }}-marketplace
   type: NodePort
   ports:
     - port: 9000

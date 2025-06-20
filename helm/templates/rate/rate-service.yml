@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rate-deploy
+  name: {{ .Release.Name  }}-rate-deploy
   labels:
-    app: rate
+    app: {{ .Release.Name  }}-rate
 spec:
   selector:
     matchLabels:
-      app: rate
+      app: {{ .Release.Name  }}-rate
   template:
     metadata:
       labels:
-        app: rate
+        app: {{ .Release.Name  }}-rate
     spec:
       containers:
         - name: rate
@@ -23,12 +23,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rate-service
+  name: {{ .Release.Name  }}-rate-service
   labels:
-    app: rate-service
+    app: {{ .Release.Name  }}-rate-service
 spec:
   selector:
-    app: rate
+    app: {{ .Release.Name  }}-rate
   type: NodePort
   ports:
     - port: 8080

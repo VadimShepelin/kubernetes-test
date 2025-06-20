@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: marketplace-config
+  name: {{ .Release.Name  }}-marketplace-config
 data:
   SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-0.postgres-service.default.svc.cluster.local:5432/marketplace"
   SPRING_REDIS_HOST: "redis-0.redis-service.default.svc.cluster.local"

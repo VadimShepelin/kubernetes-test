@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress
+  name: {{ .Release.Name  }}-ingress
 spec:
   rules:
     - http:
@@ -10,20 +10,20 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: marketplace-service
+              name: {{ .Release.Name  }}-marketplace-service
               port:
                   number: 9000
         - path: /rate
           pathType: Prefix
           backend:
             service:
-              name: rate-service
+              name: {{ .Release.Name  }}-rate-service
               port:
                   number: 8080
         - path: /email
           pathType: Prefix
           backend:
             service:
-              name: mail-service
+              name: {{ .Release.Name  }}-mail-service
               port:
                 number: 8085

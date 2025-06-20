@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mail-deploy
+  name: {{ .Release.Name  }}-mail-deploy
   labels:
-    app: mail
+    app: {{ .Release.Name  }}-mail
 spec:
   selector:
     matchLabels:
-      app: mail
+      app: {{ .Release.Name  }}-mail
   template:
     metadata:
       labels:
-        app: mail
+        app: {{ .Release.Name  }}-mail
     spec:
       containers:
         - name: mail
@@ -23,12 +23,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mail-service
+  name: {{ .Release.Name  }}-mail-service
   labels:
-    app: mail-service
+    app: {{ .Release.Name  }}-mail-service
 spec:
   selector:
-    app: mail
+    app: {{ .Release.Name  }}-mail
   type: NodePort
   ports:
     - port: 8085

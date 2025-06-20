@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Release.Name  }}-redis
+  labels:
+    app: {{ .Release.Name  }}-redis
+spec:
+  serviceName: {{ .Release.Name  }}-redis-service
+  selector:
+    matchLabels:
+      app: {{ .Release.Name  }}-redis
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name  }}-redis
+    spec:
+      containers:
+        - name: redis
+          image: redis
+          volumeMounts:
+            - name: {{ .Release.Name  }}-redis-storage
+              mountPath: /data
+      volumes:
+       - name: {{ .Release.Name  }}-redis-storage
+         persistentVolumeClaim:
+           claimName: {{ .Release.Name  }}-redis-pv-claim
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name  }}-redis-service
+  labels:
+    app: {{ .Release.Name  }}-redis-service
+spec:
+  clusterIP: None
+  ports:
+    - port: 6379
+  selector:
+    app: redis
