@@ -72,7 +72,7 @@ jobs:
         run : cd rate-service && mvn test
       - name: Run Mail API Tests
         run : cd mail-service && mvn test
-      - name: Delete postgres test container
+      - name: Delete Postgres test container
         run : docker rm -f test
 
   deploy:
