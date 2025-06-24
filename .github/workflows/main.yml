@@ -83,8 +83,10 @@ jobs:
     steps:
       - name: Docker image prune
         run:  docker image prune
-      - name: Check cluster info
-        run : kubectl cluster-info
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Install Helm
         uses: azure/setup-helm@v4.3.0
         with:
